@@ -1,0 +1,173 @@
+body {
+ font-family: 'Roboto Mono', monospace;
+ background: linear-gradient(to right, #ffffff 25%, #007BFF);
+ color: #1f1818;
+ padding: 20px;
+ margin: 0 auto;
+ line-height: 1.5;
+ text-align: center;
+}
+
+#generate {
+    position: relative;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #87CEEB, #4682B4);
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#generate:hover {
+    transform: scale(1.05);
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.3);
+}
+
+#generate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #90D5FF, #1E90FF); /* Hover gradient background */
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+#generate:hover::before {
+    opacity: 1;
+}
+
+#generate:active {
+    transform: translate(7px, 7px);
+    box-shadow: 0px 0px 0px;
+}
+
+#generate:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+#message {
+    width: 650px;
+    height: 350px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    margin: 25px auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 30px;
+    padding: 15px;
+    animation: fade-in 0.5s ease-in-out 1s;
+    background-color: #ffffff;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#userQuote {
+    font-size: 20px;
+    font-family: 'Fira Code', monospace;
+    margin: 10px auto;
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+    padding: 5px;
+}
+
+#submitQuote {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to right, #40C5FF, #4682B4);
+    transition: transform 90ms ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+#submitQuote:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+#submitQuote:active {
+    transform: translate(8px, 8px);
+    box-shadow: 0px 0px 0px;
+}
+
+#submitQuote:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+#quoteList {
+    font-size: 20px;
+}
+
+.delete-quote {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 10px auto;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgb(255, 27, 27);
+    color: #FFFFFF;
+    transition: transform 90ms ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.delete-quote:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
+}
+
+.delete-quote:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #message {
+        width: 100%;
+        height: auto;
+        font-size: 20px;
+    }
+
+    #generate, #submitQuote {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    #quoteList {
+        font-size: 16px;
+    }
+
+    .quote-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .delete-quote {
+        margin-top: 10px;
+    }
+}
